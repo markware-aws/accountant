@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 158 64% 32%;
+    --primary: 158 64% 32%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-bg: 220 16% 12%;
+    --sidebar-fg: 210 20% 70%;
+    --sidebar-hover: 220 16% 18%;
+    --sidebar-active: 158 40% 18%;
+    --sidebar-active-fg: 158 60% 70%;
+    --sidebar-border: 220 16% 20%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Auto-grow textarea */
+.auto-textarea {
+  field-sizing: content;
+  min-height: 3rem;
+  max-height: 12rem;
+  resize: none;
+  overflow-y: auto;
+}
+
+/* Sidebar scrollbar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-border));
+  border-radius: 2px;
+}
+
+/* Message animation */
+@keyframes message-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.message-in {
+  animation: message-in 0.18s ease-out both;
+}
